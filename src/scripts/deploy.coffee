@@ -42,7 +42,7 @@ module.exports = (robot) ->
   # Displays the available environments for an application
   robot.respond DeploysPattern, (msg) ->
     name        = msg.match[2]
-    environment = msg.match[4] || 'production'
+    environment = msg.match[4]
 
     try
       deployment = new Deployment(name, null, null, environment)
@@ -67,7 +67,7 @@ module.exports = (robot) ->
     force = msg.match[2] == '!'
     name  = msg.match[3]
     ref   = (msg.match[4]||'master')
-    env   = (msg.match[5]||'production')
+    env   = (msg.match[5])
     hosts = (msg.match[6]||'')
 
     username = msg.envelope.user.githubLogin or msg.envelope.user.name
