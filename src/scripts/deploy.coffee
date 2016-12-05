@@ -78,7 +78,10 @@ module.exports = (robot) ->
       msg.reply "#{name}? Never heard of it."
       return
     unless deployment.isValidEnv()
-      msg.reply "#{name} doesn't seem to have an #{env} environment."
+      if not env
+        msg.reply "Environment must be specified."
+      else
+        msg.reply "#{name} doesn't seem to have an #{env} environment."
       return
     unless deployment.isAllowedRoom(msg.message.user.room)
       msg.reply "#{name} is not allowed to be deployed from this room."
