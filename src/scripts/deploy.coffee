@@ -74,6 +74,8 @@ module.exports = (robot) ->
 
     deployment = new Deployment(name, ref, task, env, force, hosts)
 
+    msg.reply "Environement is #{env}"
+
     unless deployment.isValidApp()
       msg.reply "#{name}? Never heard of it."
       return
