@@ -12,7 +12,7 @@ DEPLOY_SYNTAX = ///
   (?:\/([^\s]+))?                 # Branch or sha to deploy
   (?:\s+(?:to|in|on)\s+           # http://i.imgur.com/3KqMoRi.gif
   #{repository}                   # Environment to release to
-  (?:\/([^\s]+)))?                # Host filter to try
+  (?:\/([^\s]+))?)?                # Host filter to try
   \s*$                            # Prevent match if something does not match
 ///i
 
